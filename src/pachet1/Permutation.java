@@ -5,10 +5,10 @@ public class Permutation {
     {
         String str = "ABCDEF";
         Permutation permutation = new Permutation();
-        System.out.println(permutation.permute(str, 100, true));
+        System.out.println(permutation.permute(str, 100, 1));
     }
 
-    public String permute(String str, int times, boolean rightDirection) {
+    public String permute(String str, int times, int rightDirection) {
         if(times < 1 || times > 100) {
             throw new IllegalArgumentException("times should be between 1 and 100");
         }
@@ -21,26 +21,16 @@ public class Permutation {
             throw new IllegalArgumentException("String should have maximum 100 chars.");
         }
 
-        if (rightDirection) {
+        if(!(rightDirection == 0 || rightDirection == 1)) {
+            throw new IllegalArgumentException("Right can be only 0 or 1");
+        }
+
+        if (rightDirection == 1) {
             return permute_right(str, times);
         }
         else {
             return permute_left(str, times);
         }
-    }
-
-    private String permute_left(String str, int times){
-        char[] stringChars = str.toCharArray();
-
-        for (int i = 0; i < times; i++) {
-            char first = stringChars[0];
-            for(int j = 1; j < stringChars.length; j++) {
-                stringChars[j - 1] = stringChars[j];
-            }
-            stringChars[stringChars.length - 1] = first;
-        }
-
-        return String.valueOf(stringChars);
     }
 
     private String permute_right(String str, int times){
@@ -57,7 +47,18 @@ public class Permutation {
         return String.valueOf(stringChars);
     }
 
+    private String permute_left(String str, int times){
+        char[] stringChars = str.toCharArray();
 
+        for (int i = 0; i < times; i++) {
+            char first = stringChars[0];
+            for(int j = 1; j < stringChars.length; j++) {
+                stringChars[j - 1] = stringChars[j];
+            }
+            stringChars[stringChars.length - 1] = first;
+        }
 
+        return String.valueOf(stringChars);
+    }
 
 }
