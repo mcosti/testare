@@ -5,10 +5,10 @@ public class Permutation {
     {
         String str = "ABCDEF";
         Permutation permutation = new Permutation();
-        System.out.println(permutation.permute(str, 100));
+        System.out.println(permutation.permute(str, 100, true));
     }
 
-    public String permute(String str, int times) {
+    public String permute(String str, int times, boolean rightDirection) {
         if(times < 1 || times > 100) {
             throw new IllegalArgumentException("times should be between 1 and 100");
         }
@@ -21,7 +21,7 @@ public class Permutation {
             throw new IllegalArgumentException("String should have maximum 100 chars.");
         }
 
-        if (times % 2 == 0) {
+        if (rightDirection) {
             return permute_right(str, times);
         }
         else {
