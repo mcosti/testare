@@ -1,12 +1,12 @@
 package pachet1;
 
 public class Permutation {
-    public static void main(String[] args)
-    {
-        String str = "ABCDEF";
-        Permutation permutation = new Permutation();
-        System.out.println(permutation.permute(str, 100, 1));
-    }
+//    public static void main(String[] args)
+//    {
+//        String str = "ABCDEF";
+//        Permutation permutation = new Permutation();
+//        System.out.println(permutation.permute(str, 100, 1));
+//    }
 
     public String permute(String str, int times, int rightDirection) {
         if(times < 1 || times > 100) {

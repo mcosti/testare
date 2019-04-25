@@ -73,6 +73,12 @@ public class PermutationTest {
     }
 
     @Test
+    public void testLorem100Times() {
+        Permutation tester = new Permutation();
+        assertEquals("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean m", tester.permute(lorem100, 100, 1));
+    }
+
+    @Test
     public void testLoremRight() {
         Permutation tester = new Permutation();
         assertEquals(lorem100, tester.permute(lorem100, lorem100.length(), 1));
@@ -85,3 +91,4 @@ public class PermutationTest {
     }
 
 }
+
